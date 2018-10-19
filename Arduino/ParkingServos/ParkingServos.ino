@@ -21,8 +21,11 @@ void setup()
 void loop() 
 { 
  go_forward(TIEMPO);
+ go_left(TIEMPO);
+ go_right(TIEMPO);
+ go_back(TIEMPO);
  go_stop(TIEMPO);
-} 
+}  
 
 void go_stop(int tiempo){
   l_servo.write(L_STOP);
