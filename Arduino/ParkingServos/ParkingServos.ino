@@ -5,7 +5,7 @@ Servo l_servo, r_servo;
 int L_MOTOR_PIN=10;
 int R_MOTOR_PIN=9;
 
-int MAX_SPD=150;
+int MAX_SPD=122;
 int MIN_SPD=0;
 int L_STOP=89;
 int R_STOP=90;
@@ -25,7 +25,7 @@ void loop()
  go_right(TIEMPO);
  go_back(TIEMPO);
  go_stop(TIEMPO);
-}  
+} 
 
 void go_stop(int tiempo){
   l_servo.write(L_STOP);
@@ -33,23 +33,22 @@ void go_stop(int tiempo){
   delay(tiempo);
 }
 void go_forward(int tiempo){
+  l_servo.write(-MAX_SPD);
+  r_servo.write(MAX_SPD);
+  delay(tiempo);
+}
+void go_back(int tiempo){
   l_servo.write(MAX_SPD);
   r_servo.write(-MAX_SPD);
   delay(tiempo);
 }
-void go_back(int tiempo){
-  l_servo.write(-MAX_SPD);
-  r_servo.write(-MAX_SPD);
-  delay(tiempo);
-}
-void go_rigth(int tiempo){
+void go_left(int tiempo){
   l_servo.write(MAX_SPD);
   r_servo.write(MIN_SPD);
   delay(tiempo);
 }
-void go_left(int tiempo){
+void go_right(int tiempo){
   l_servo.write(MIN_SPD);
-  r_servo.write(MAX_SPD);
+  r_servo.write(-MAX_SPD);
   delay(tiempo);
 }
-
